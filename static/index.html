@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coin Info</title>
+</head>
+<body>
+    <h1>Cryptocurrency Info (via CoinGecko)</h1>
+    <input id="crypto" placeholder="Enter symbol (e.g. BTC)">
+    <button onclick="searchCoin()">Search</button>
+    <div id="results"></div>
+
+    <script>
+        async function searchCoin() {
+            const symbol = document.getElementById("crypto").value.toUpperCase();
+            const res = await fetch(`/coin/${symbol}`);
+            if (!res.ok) {
+                document.getElementById("results").innerHTML = "Coin not found!";
+                return;
+            }
+
+            const data = await res.json();
+            document.getElementById("results").innerHTML = `
+                <h2>${data.name}</h2>
+                <img src="${data.image}" alt="${data.name} logo">
+                <p><strong>Last updated:</strong> ${data.last_updated}</p>
+                <p><strong>Description:</strong> ${data.description.substring(0, 300)}...</p>
+                <a href="${data.homepage}" target="_blank">Visit Homepage</a>
+            `;
+        }
+    </script>
+</body>
+</html

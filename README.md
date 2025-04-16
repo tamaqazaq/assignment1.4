@@ -96,10 +96,8 @@ MIT License — feel free to fork & improve!
 
 ---
 
-## 👩‍💻 Author
-
-**Your Name**  
-AITU | BT2 | Spring 2025
+## 👩‍💻 Authors
+Ermukhanov Daulet, Amirov Bekzat, Zhumakhanova Asselya
 
 ---
 
